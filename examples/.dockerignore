@@ -1,0 +1,10 @@
+Dockerfile.*
+docker-compose.*.yml
+node_modules
+dist
+docs
+.husky
+ormconfig.json
+migration.config.ts
+package-lock.json
+yarn.lock
