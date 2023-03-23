@@ -8,16 +8,20 @@ services:
       - app-network
 
   nginx:
+    image: nginx:stable-alpine
     container_name: nginx
-    build: ./nginx
-    depends_on:
-      - app
+    volumes:
+      - ./nginx/templates:/etc/nginx/templates
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     environment:
       - APP_PORT=${APP_PORT}
     ports:
       - 80:80
+    depends_on:
+      - app
     networks:
       - app-network
 
 networks:
-  app-network:
+  app:
+    name: app-network

@@ -47,6 +47,11 @@ APP_PORT=
 docker-compose up -d --build --force-recreate
 ```
 
+### App log pannel
+```
+docker logs --tail 1000 -f app
+```
+
 ## Local enviroment
 ### Prepare project configuration
 Review example folder and select solution: docker only or docker with pm2.
