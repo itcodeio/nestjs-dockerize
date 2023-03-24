@@ -16,16 +16,16 @@ RED_BACKGROUND='\033[41m'
 RED_BACKGROUND_BRIGHT='\033[0;101m'
 
 function load_log_panel() {
-  echo -e "\n\n${YELLOW}Loading app log panel...${NORMAL}\n"
+  echo -e "\n\n${YELLOW}Loading app log panel ...${NORMAL}\n"
   docker logs --tail 1000 -f app
 }
 
 function deploy() {
-  echo -e "\n${YELLOW}Stopping app image...${NORMAL}\n"
+  echo -e "\n${YELLOW}Stopping app image ...${NORMAL}\n"
   docker-compose down
-  echo -e "\n${YELLOW}Clearing app volumes...${NORMAL}\n"
+  echo -e "\n${YELLOW}Clearing app volumes ...${NORMAL}\n"
   docker system prune -a --volumes -f
-  echo -e "\n${YELLOW}Deploying fresh app image...${NORMAL}\n"
+  echo -e "\n${YELLOW}Deploying fresh app image ...${NORMAL}\n"
   docker-compose up -d --build --force-recreate
 }
 
